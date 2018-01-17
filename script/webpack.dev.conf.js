@@ -11,6 +11,7 @@ module.exports = merge(base, {
     publicPath: '',
     filename: 'bundle.js'
   },
+  devtool: 'eval-source-map',
   module: {
     rules: [
       {
@@ -24,7 +25,7 @@ module.exports = merge(base, {
     disableHostCheck: true,
     hot: true,
     host: '0.0.0.0',
-    port: 2046,
+    port: 2562,
     open: true,
     openPage: 'invitation.html?name=耗子',
     overlay: {

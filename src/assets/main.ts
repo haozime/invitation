@@ -1,4 +1,5 @@
 import './style.styl'
+import { Base64 } from 'js-base64'
 
 function decode (s) {
   try {
@@ -30,7 +31,7 @@ function escapeHtml (s) {
   let name = parseQuery(location.search.slice(1))['name'] || ''
   if (!name) {
     if (process.env.NODE_ENV === 'production') {
-      location.href = 'http://forum.longquanzs.org/forum.php?mod=forumdisplay&fid=538&mobile=2'
+      location.replace('http://forum.longquanzs.org/forum.php?mod=forumdisplay&fid=538&mobile=2')
     }
   }
   name = escapeHtml(name.substr(0, 15))
