@@ -4,25 +4,72 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title></title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0
+    }
+    #ipt {
+
+    }
+    button {
+
+    }
+  </style>
 </head>
 <body>
   <form action="/">
     <input type="text" name="id" id="ipt" placeholder="请输入”" maxlength="15">
     <button>生成</button>
   </form>
+  <ul id="list"></ul>
+
   <script src="assets/base64.js"></script>
   <script>
    (function () {
     function $(s) {
       return document.querySelector(s)
     }
+    function render (data) {
+      var html = []
+      data.forEach(function(base64Name) {
+        var url = $form.action + '?id=' + base64Name
+        var name = Base64.decode(base64Name)
+        html.push('<li><a href="' + url + '">' + name + '</a></li>')
+      })
+      $list.innerHTML = html.join('')
+    }
+    var storage = {
+      get: function (key) {
+        let value
+        try {
+          value = JSON.parse(localStorage[key])
+        } catch (e) {}
+        return value || null
+      },
+      set: function (key, value) {
+        try {
+          localStorage[key] = JSON.stringify(value)
+        } catch (e) {}
+      }
+    }
     var $form = $('form'),
         $input = $('#ipt'),
-        $submit = $('button')
+        $submit = $('button'),
+        $list = $('#list')
+
+    var list = storage.get('list') || []
+
+    render(list)
+
     $form.onsubmit = function (e) {
       e.preventDefault()
       var base64Name = Base64.encodeURI($input.value.trim())
-      location.href = $form.action + '?id=' + base64Name
+      // location.href = $form.action + '?id=' + base64Name
+      list.indexOf(base64Name) === -1 && list.push(base64Name)
+      console.log(list)
+      storage.set('list', Array.from(new Set(list)))
+      render(list)
       return false
     }
   })()
