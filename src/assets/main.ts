@@ -28,12 +28,13 @@ function escapeHtml (s) {
 
 // init
 {
-  let name = parseQuery(location.search.slice(1))['name'] || ''
+  let name = parseQuery(location.search.slice(1))['id'] || ''
   if (!name) {
     if (process.env.NODE_ENV === 'production') {
       location.replace('http://forum.longquanzs.org/forum.php?mod=forumdisplay&fid=538&mobile=2')
     }
   }
-  name = escapeHtml(name.substr(0, 15))
+  name = Base64.decode(name)
+  name = escapeHtml(name)
   console.log(name)
 }

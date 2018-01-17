@@ -3,15 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>邀请函生成器</title>
+  <title></title>
 </head>
 <body>
-  <form action="invitation.html" onsubmit="name.value">
-    <input type="text" name="name" id="name" placeholder="请输入师兄称谓，如“贤二师兄”" maxlength="15">
+  <form action="/">
+    <input type="text" name="id" id="ipt" placeholder="请输入”" maxlength="15">
     <button>生成</button>
   </form>
+  <script src="assets/base64.js"></script>
   <script>
-
+   (function () {
+    function $(s) {
+      return document.querySelector(s)
+    }
+    var $form = $('form'),
+        $input = $('#ipt'),
+        $submit = $('button')
+    $form.onsubmit = function (e) {
+      e.preventDefault()
+      var base64Name = Base64.encodeURI($input.value.trim())
+      location.href = $form.action + '?id=' + base64Name
+      return false
+    }
+  })()
   </script>
 </body>
 </html>

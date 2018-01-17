@@ -27,7 +27,7 @@ module.exports = merge(base, {
     host: '0.0.0.0',
     port: 2562,
     open: true,
-    openPage: 'invitation.html?name=耗子',
+    openPage: '?id=6ICX5a2Q',
     overlay: {
       warnings: false,
       errors: true
@@ -50,8 +50,8 @@ module.exports = merge(base, {
     new webpack.NoEmitOnErrorsPlugin(),
     new FriendlyErrorsPlugin(),
     new HtmlWebpackPlugin({
-      filename: 'invitation.html',
-      template: './src/invitation.html',
+      filename: 'index.html',
+      template: './src/index.html',
       inject: true
     })
   ]

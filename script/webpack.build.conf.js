@@ -59,8 +59,8 @@ module.exports = merge(base, {
     }),
 
     new HtmlWebpackPlugin({
-      filename: 'invitation.html',
-      template: './src/invitation.html',
+      filename: 'index.html',
+      template: './src/index.html',
       inject: true,
       minify: {
         removeComments: true,
@@ -91,7 +91,7 @@ module.exports = merge(base, {
     //   // // 注意中间用空格隔开
     //   // fallback: ['/ /404.html'],
     //   headcomment: pkg.name + ' v' + pkg.version,
-    //   master: ['invitation.html']
+    //   master: ['index.html']
     // })
   ]
 })
