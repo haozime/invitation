@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --config script/webpack.dev.conf.js",
-    "build": "webpack --config script/webpack.build.conf.js",
-    "deploy": "npm run build && node script/deploy.js"
+    "build": "npm run lint && webpack --config script/webpack.build.conf.js",
+    "deploy": "npm run build && node script/deploy.js",
+    "lint": "tslint --project tsconfig.json --format stylish"
   },
   "author": "",
   "license": "ISC",
@@ -25,6 +26,8 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
     "ts-loader": "^3.2.0",
+    "tslint": "^5.9.1",
+    "tslint-config-standard": "^7.0.0",
     "typescript": "^2.6.2",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.0",

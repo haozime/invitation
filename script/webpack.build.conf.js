@@ -77,21 +77,21 @@ module.exports = merge(base, {
 
     new HtmlWebpackInlineSourcePlugin(),
 
-  // new Manifest({
-  //   cache: [
-  //     // 'assets/main.[hash:7].js',
-  //     // 'assets/main.[contenthash:7].css'
-  //   ],
-  //   timestamp: false,
-  //   filename: 'cache.manifest',
-  //   // 注意*星号前面用空格隔开
-  //   network: [
-  //     '*'
-  //   ],
-  //   // // 注意中间用空格隔开
-  //   // fallback: ['/ /404.html'],
-  //   headcomment: pkg.name + ' v' + pkg.version,
-  //   master: ['invitation.html']
-  // })
+    // new Manifest({
+    //   cache: [
+    //     // 'assets/main.[hash:7].js',
+    //     // 'assets/main.[contenthash:7].css'
+    //   ],
+    //   timestamp: false,
+    //   filename: 'cache.manifest',
+    //   // 注意*星号前面用空格隔开
+    //   network: [
+    //     '*'
+    //   ],
+    //   // // 注意中间用空格隔开
+    //   // fallback: ['/ /404.html'],
+    //   headcomment: pkg.name + ' v' + pkg.version,
+    //   master: ['invitation.html']
+    // })
   ]
 })
