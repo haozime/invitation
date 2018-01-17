@@ -5,7 +5,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin')
-const Manifest = require('webpack-manifest')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+
+// const Manifest = require('webpack-manifest')
 const pkg = require('../package')
 const base = require('./webpack.base.conf')
 
@@ -31,6 +33,12 @@ module.exports = merge(base, {
       'process.env': {
         NODE_ENV: '"production"'
       }
+    }),
+
+    new CopyWebpackPlugin([{
+      from: 'src'
+    }], {
+      ignore: ['*.ts', '*.styl']
     }),
 
     new webpack.optimize.UglifyJsPlugin({
@@ -69,21 +77,21 @@ module.exports = merge(base, {
 
     new HtmlWebpackInlineSourcePlugin(),
 
-    new Manifest({
-      cache: [
-        // 'assets/main.[hash:7].js',
-        // 'assets/main.[contenthash:7].css'
-      ],
-      timestamp: false,
-      filename: 'cache.manifest',
-      // 注意*星号前面用空格隔开
-      network: [
-        '*'
-      ],
-      // // 注意中间用空格隔开
-      // fallback: ['/ /404.html'],
-      headcomment: pkg.name + ' v' + pkg.version,
-      master: ['invitation.html']
-    })
+  // new Manifest({
+  //   cache: [
+  //     // 'assets/main.[hash:7].js',
+  //     // 'assets/main.[contenthash:7].css'
+  //   ],
+  //   timestamp: false,
+  //   filename: 'cache.manifest',
+  //   // 注意*星号前面用空格隔开
+  //   network: [
+  //     '*'
+  //   ],
+  //   // // 注意中间用空格隔开
+  //   // fallback: ['/ /404.html'],
+  //   headcomment: pkg.name + ' v' + pkg.version,
+  //   master: ['invitation.html']
+  // })
   ]
 })
