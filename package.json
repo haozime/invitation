@@ -1,0 +1,15 @@
+{
+  "name": "invitation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "npm run build && node script/deploy.js",
+    "build" : "#"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gh-pages": "^1.1.0"
+  }
+}
