@@ -1,2 +1,2 @@
 const ghpages = require('gh-pages')
-ghpages.publish('src')
+ghpages.publish('dist')
