@@ -75,7 +75,7 @@ module.exports = merge(base, {
       inlineSource: '.(js|css)$' // embed all javascript and css inline
     }),
 
-    new HtmlWebpackInlineSourcePlugin(),
+    // new HtmlWebpackInlineSourcePlugin(),
 
     // new Manifest({
     //   cache: [

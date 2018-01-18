@@ -2,6 +2,86 @@
   margin 0
   padding 0
 }
-body {
-  background #f00
+html, body {
+  background #dc3c2b
+  font-family: Helvetica,sans-serif;
+}
+#doc {
+  max-width 7.50rem
+  margin 0 auto
+  position relavite
+}
+.slide {
+  position relavite
+  img {
+    display block
+    width 7.50rem
+    height 12.06rem
+  }
+}
+
+.text {
+  position absolute
+  width 7.50rem
+  top 8.70rem
+  text-align center
+  color #fff
+  #name {
+    margin 0.08rem auto
+    font-size 0.40rem
+  }
+  .l1, .l3 {
+    font-size 0.32rem
+  }
+  .l4 {
+    margin-top 0.40rem
+    font-size 0.24rem
+    color #fec1bc
+  }
+}
+
+.ico {
+  position absolute
+  left 50%
+  margin-left -(0.33rem / 2)
+  top 11.50rem
+  width 0.33rem
+  height 0.28rem
+  background  url('./ico.svg') no-repeat
+  background-size cover
+  animation ico 4s infinite
+}
+.cloud {
+  position absolute
+  top 8.40rem
+  left 0.80rem
+  width 1.06rem
+  height 0.63rem
+  background url('//img.alicdn.com/tfs/TB1w7dynxrI8KJjy0FpXXb5hVXa-106-63.png')
+  background-size cover
+  animation cloud 20s linear infinite
+}
+
+@keyframes ico {
+  0% {
+    transform: translate3d(0, 5px, 0)
+  }
+  50% {
+    transform: translate3d(0, 0px, 0)
+  }
+  100% {
+    transform: translate3d(0, -5px, 0)
+  }
+}
+
+@-webkit-keyframes cloud {
+	0% {
+    transform: translate3d(0, 0, 0)
+  }
+	50% {
+    transform: translate3d(60px, 10px, 0)
+  }
+	100% {
+    transform: translate3d(0, 0, 0)
+  }
 }

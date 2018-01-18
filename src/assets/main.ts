@@ -25,15 +25,16 @@ function escapeHtml (s) {
           .replace(/>/g, '&gt;')
           .replace(/\//g, '&#x2f;')
 }
+function $ (s): HTMLElement | null {
+  return document.getElementById(s)
+}
 
 // init
 {
-  const music = '/assets/bg.mp3'
-  let audio = new Audio()
-  audio.src = music
-  audio.preload = 'auto'
-  audio.loop = true
-  audio.play()
+  let audio = $('bgm') as HTMLAudioElement
+  audio.oncanplay = () => {
+    audio.play()
+  }
 
   document.addEventListener('touchstart', () => {
     audio.play()
@@ -47,5 +48,7 @@ function escapeHtml (s) {
   }
   name = Base64.decode(name)
   name = escapeHtml(name)
-
+  document.title = `邀请函 —— 送呈${name}`
+  let $name = $('name') as HTMLElement
+  $name.innerText = name
 }
